@@ -1,0 +1,537 @@
+/*
+  sensible defaults
+  in variables you can
+  adjust as needed
+*/
+:root {
+  --eigengrau: #16161d;
+  --size: medium;
+  --width: none;
+  --margin: 1rem;
+  --padding: 0 0.5rem;
+  --sans-stack: "atkinson hyperlegible", -apple-system, BlinkMacSystemFont,
+    "avenir next", avenir, "segoe ui", "helvetica neue", helvetica, cantarell,
+    ubuntu, roboto, noto, arial, sans-serif;
+  --mono-stack: menlo, "cascadia code", consolas, monaco, "liberation mono",
+    "lucida console", monospace;
+  --serif-stack: "iowan old style", "apple garamond", baskerville,
+    "times new roman", "droid serif", times, "source serif pro", serif,
+    "apple color emoji", "segoe ui emoji", "segoe ui symbol";
+  --body-font: 1.2rem/1.62 var(--sans-stack);
+}
+
+/*
+    you can apply most
+    styles to HTML elements for
+    a consistent look
+  */
+html {
+  font-size: var(--size);
+}
+
+body {
+  margin: var(--margin);
+  font: var(--body-font);
+  color: var(--color);
+  background: var(--background);
+  max-width: var(--width);
+  padding: var(--padding);
+}
+
+h1,
+h2,
+h3,
+footer {
+  line-height: 1.2;
+}
+
+pre,
+code,
+kbd,
+samp {
+  font: 1.1rem/1.4 var(--mono-stack);
+}
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  border: 1px solid var(--color);
+  padding: 1rem;
+}
+
+hr {
+  margin: 1.2rem 0;
+  border: 1px solid var(--color);
+}
+
+dt,
+figcaption,
+summary,
+table caption,
+th {
+  font-weight: bold;
+}
+
+figure {
+  margin: 1rem 0;
+}
+
+blockquote {
+  margin: 1rem 0;
+  padding: 0 1rem;
+  border-left: 4px solid var(--color);
+}
+
+/*
+    hyperlinks mostly
+    work but default styles don't.
+    can we improve them?
+  */
+a {
+  color: var(--link);
+  text-underline-offset: 0.4rem;
+}
+
+small > a {
+  text-underline-offset: 0.3rem;
+}
+
+a:focus {
+  outline: 1px dotted var(--outline);
+}
+
+a:hover {
+  color: var(--hover);
+}
+
+a:active {
+  color: var(--active);
+}
+
+a:visited {
+  color: var(--visited);
+}
+
+/*
+    a clean, bold style for
+    data tables taken from
+    Kev Quirk's SimpleCSS
+  
+    https://simplecss.org/
+  */
+table {
+  margin: 1rem 0;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  border: 2px solid var(--color);
+  background: var(--background);
+  text-align: left;
+  vertical-align: top;
+  padding: 0.5rem;
+}
+
+th {
+  background-color: var(--accent);
+}
+
+tr:nth-child(even) > td {
+  background-color: var(--accent);
+}
+
+table caption {
+  text-align: left;
+  margin: 0.5rem 0;
+}
+
+header p {
+  font-weight: bold;
+  font-style: italic;
+}
+
+/*
+    responsive images
+    fit the container's width
+    with dynamic height
+  */
+img,
+video {
+  object-fit: cover;
+  aspect-ratio: 16/9;
+  border: 2px solid var(--color);
+}
+
+/*
+    CSS classes can be
+    applied to particular
+    elements at need
+  */
+.details {
+  margin: 1rem;
+  padding: 0 1rem;
+  border: 2px solid var(--color);
+}
+
+.toc {
+  margin: 1rem 0;
+}
+
+.regular {
+  font-size: 1rem;
+}
+
+.current {
+  font-weight: bold;
+}
+
+.summary {
+  font-style: italic;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.sans-serif-font {
+  font-family: var(--sans-stack);
+  font-size: 1.25rem;
+}
+
+.serif-font {
+  font-family: var(--serif-stack);
+  font-size: 1.25rem;
+}
+
+.right {
+  text-align: right;
+}
+
+.center {
+  text-align: center;
+}
+
+img.center {
+  margin: 1rem auto;
+}
+
+.v-center {
+  vertical-align: middle;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.undecorated {
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+a.undecorated,
+a:focus.undecorated {
+  text-decoration: none !important;
+  outline: none !important;
+}
+
+.indent {
+  margin-left: 2rem;
+}
+
+.quotes > figure {
+  margin: 4rem 0;
+}
+
+.note,
+.notice,
+.warning,
+.link {
+  padding: 0 1rem;
+  margin: 2rem 0;
+}
+
+.note > p:first-child,
+.notice > p:first-child,
+.warning > p:first-child,
+.link > p:first-child {
+  margin-top: -0.5rem;
+}
+
+.note::before,
+.notice::before,
+.warning::before,
+.link::before {
+  display: block;
+  text-align: center;
+  position: relative;
+  top: -1.25rem;
+  padding: 2px 10px;
+  font-weight: bold;
+}
+
+.note,
+.note::before,
+.notice,
+.notice::before,
+.warning,
+.warning::before,
+.link,
+.link::before {
+  background: var(--accent);
+}
+
+.note,
+.note::before,
+.notice,
+.notice::before {
+  border: 2px solid royalblue;
+}
+
+.Warning,
+.warning::before {
+  border: 2px solid crimson;
+}
+
+.link,
+.link::before {
+  border: 2px solid var(--link);
+}
+
+.note::before,
+.notice::before {
+  width: 4rem;
+  content: "NOTE";
+}
+
+.warning::before {
+  width: 7rem;
+  content: "WARNING";
+}
+
+.link::before {
+  width: 12.5rem;
+  content: "THIS IS A LINK POST!";
+}
+
+.date-col {
+  min-width: 7.5rem;
+}
+
+/*
+    taken from CSS Tricks
+    the details element and
+    summary rock but
+    fix pointers in summary
+    and allow inline headings
+  
+    https://css-tricks.com/two-issues-styling-the-details-element-and-how-to-solve-them/
+  */
+@supports not (-ms-ime-align: auto) {
+  details summary {
+    cursor: pointer;
+  }
+
+  details summary > * {
+    display: inline;
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (pointer: coarse) {
+  li,
+  small {
+    line-height: 1.5;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/*
+    Using a desktop
+    display? Away with needless
+    austerity, please.
+  */
+@media only screen and (pointer: fine) {
+  :root {
+    --width: 50rem;
+    --margin: 2rem auto;
+    --padding: 1rem 4rem 2rem;
+    --small-shadow: 8px 8px;
+    --big-shadow: 16px 16px;
+  }
+
+  html {
+    background: var(--accent);
+  }
+
+  body {
+    box-shadow: var(--big-shadow) var(--shadow);
+  }
+
+  blockquote,
+  figure > blockquote {
+    margin: 1rem 4rem;
+  }
+
+  li {
+    margin-bottom: 0.2rem;
+  }
+
+  img,
+  video {
+    box-shadow: var(--small-shadow) var(--shadow);
+  }
+
+  table {
+    margin: 2rem 0;
+  }
+
+  th {
+    background-color: var(--accent);
+  }
+
+  tr:nth-child(even) {
+    background-color: lightyellow;
+  }
+
+  time {
+    font-family: var(--mono-stack);
+    font-weight: bold;
+  }
+
+  .nav,
+  .breadcrumbs {
+    padding-left: 0;
+    display: flex;
+    gap: 1rem;
+    list-style-type: none;
+    list-style-position: inside;
+  }
+
+  .breadcrumbs li::before {
+    content: "/ ";
+  }
+
+  .undecorated {
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+
+  .two-column {
+    column-count: 2;
+  }
+
+  .three-column {
+    column-count: 3;
+  }
+}
+
+/*
+    if visitors have
+    big screens, it seems cruel to
+    make them read small text
+  */
+@media only screen and (min-width: 1920px) {
+  :root {
+    --size: large;
+  }
+}
+@media only screen and (min-width: 2560px) {
+  :root {
+    --size: x-large;
+  }
+}
+@media only screen and (min-width: 3840px) {
+  :root {
+    --size: xx-large;
+  }
+}
+
+/*
+    black on white by day
+    the classic look will never
+    go out of fashion
+  */
+@media only screen and (prefers-contrast: no-preference) and (prefers-color-scheme: light) {
+  :root {
+    --color: #16161d;
+    --background: #fefefe;
+    --accent: aliceblue;
+    --link: darkslateblue;
+    --hover: crimson;
+    --active: forestgreen;
+    --visited: purple;
+    --outline: darkslateblue;
+    --shadow: rgba(40, 40, 40, 0.3);
+  }
+}
+
+/*
+    white on black at night
+    insomniac’s delight
+    best in a dark room
+  */
+@media only screen and (prefers-contrast: no-preference) and (prefers-color-scheme: dark) {
+  :root {
+    --color: #fefefe;
+    --background: midnightblue;
+    --accent: navy;
+    --link: lightcyan;
+    --hover: cyan;
+    --active: skyblue;
+    --visited: lightblue;
+    --outline: yellow;
+    --shadow: rgba(210, 210, 210, 0.3);
+  }
+}
+
+@media only screen and (prefers-contrast: more) {
+  :root {
+    --color: black;
+    --background: white;
+    --accent: white;
+    --link: blue;
+    --hover: green;
+    --active: green;
+    --visited: purple;
+    --outline: red;
+    --shadow: rgba(25, 25, 25, 0.3);
+  }
+}
+
+/*
+    Do people still print
+    out pages from websites?
+    Let's dress them up.
+  */
+@media print {
+  :root {
+    --color: black;
+    --background: white;
+    --accent: white;
+    --link: black;
+    --hover: black;
+    --active: black;
+    --visited: black;
+    --outline: black;
+    --size: medium;
+    --margin: 0;
+    --width: none;
+    --body-font: 1rem/1.2 var(--serif-stack);
+  }
+
+  body {
+    border: none;
+  }
+}
+
+/*
+    Don’t ask me why
+    I wrote my comments like this.
+    It made sense at the
+    time; maybe I OD’ed while
+    playing Ghost of Tsushima?
+  */
